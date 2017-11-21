@@ -1,0 +1,40 @@
+{
+	"canonicalBase": "http://hl7.org/fhir/ig/vietnam",
+	"tool": "jekyll",
+	"paths": {
+		"output": "output",
+		"resources": ["infrastructure", "valuesets", "conceptmaps"], 
+		"specification": "http://build.fhir.org",
+		"pages": ["pages"],
+		"qa": "qa",
+		"txCache": "txCache",
+		"temp": "temp"
+	},
+	"broken-links": "warning",
+	"resources": {
+    "*" : true
+	},
+	"status": "draft",
+	"do-transforms": "false",
+	"defaults": {
+		"ValueSet": {
+			"template-base": "vs.html"
+		},
+		"CodeSystem": {
+			"template-base": "cs.html"
+		},
+		"ConceptMap": {
+			"template-base": "cm.html"
+		},
+		"Any": {
+			"template-base": "base.html",
+			"template-format": "format.html"
+		}
+	},
+	"version": "3.0.1",
+	"source": "ig.xml",
+	"gen-examples": "false",
+	"title": "Vietnam National Implementation Guide",
+  "sct-edition" : "http://snomed.info/sct/900000000000207008",
+	"publisher": "HL7 Vietnam"
+}
