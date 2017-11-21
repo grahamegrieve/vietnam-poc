@@ -5,7 +5,7 @@
 
 ###  Introduction
 
-This is the ''draft'' Vietnam National implementation guide for FHIR. 
+This is the *draft* Vietnam National implementation guide for FHIR. 
 
 This implementation guide contains (or will, when more work is done):
 * Vietnamese national profiles
