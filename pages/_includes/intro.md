@@ -5,14 +5,14 @@
 
 ###  Introduction
 
-This is the *draft* Vietnam National implementation guide for FHIR. 
+Đây là bản phác thảo Hướng dẫn thực hiện triển khai quốc gia về FHIR.
+Hướng dẫn thực hiện triển khai này bao gồm (có thể được sửa đổi):
+*	Các hồ sơ quốc gia
+*	Các phần mở rộng quốc gia
+*	Thông số kỹ thuật giao diện FHIR cho hồ sơ sức khỏe quốc gia
 
-This implementation guide contains (or will, when more work is done):
-* Vietnamese national profiles
-* Vietnamese national extensions
-* Specification for FHIR interface to Vietnamese National Health record
+#### Ghi chú của biên tập viên:
 
-
-#### Editors notes:
+Work in progress!
 
 source pages/\_include/{{page.md_filename}}.md  file
