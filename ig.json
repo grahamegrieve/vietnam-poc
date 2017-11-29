@@ -3,7 +3,7 @@
 	"tool": "jekyll",
 	"paths": {
 		"output": "output",
-		"resources": ["infrastructure", "valuesets", "conceptmaps"], 
+		"resources": ["infrastructure", "valuesets", "conceptmaps", "structuredefinitions"], 
 		"specification": "http://build.fhir.org",
 		"pages": ["pages"],
 		"qa": "qa",
