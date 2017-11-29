@@ -8,14 +8,14 @@
 Example:
 
 ```
-  &lt;Patient&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/ig/vietnam/StructureDefinition/ethnicity&quot;&gt;
-      &lt;valueCoding&gt;
-       &lt;system value=&quot;http://hl7.org/fhir/ig/vietnam/CodeSystem/ethnicity&quot;/&gt;
-       &lt;code value=&quot;KINH&quot;/&gt;
-      &lt;/valueCoding&gt;
-    &lt;/extension&gt;
-  &lt;/Patient&gt;
+  <Patient>
+    <extension url="http://hl7.org/fhir/ig/vietnam/StructureDefinition/ethnicity">
+      <valueCoding>
+       <system value="http://hl7.org/fhir/ig/vietnam/CodeSystem/ethnicity"/>
+       <code value="KINH"/>
+      </valueCoding>
+    </extension>
+  </Patient>
 ```
 
 {% include list-structuredefinitions.xhtml %}
