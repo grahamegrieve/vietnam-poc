@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2017-11-29T19:06:48.834+11:00" />
+  </meta>
+  <url value="http://hl7.org/fhir/ig/vietnam/StructureDefinition/ethnicity" />
+  <name value="Vietnam Ethnicity Extension" />
+  <status value="draft" />
+  <date value="2017-11-29T19:03:17.8239795+11:00" />
+  <publisher value="HL7 Vietnam" />
+  <purpose value="Ethnicity is required on Vietnamese government forms" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Patient" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Vietnamese Patient Ethnicity" />
+      <definition value="Vietnamese Patient Ethnicity" />
+      <max value="1" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://hl7.org/fhir/ig/vietnam/StructureDefinition/ethnicity" />
+    </element>
+    <element id="Extension.value[x]:valueCoding">
+      <path value="Extension.valueCoding" />
+      <sliceName value="valueCoding" />
+      <min value="1" />
+      <type>
+        <code value="Coding" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
