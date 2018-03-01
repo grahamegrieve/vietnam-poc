@@ -1,0 +1,304 @@
+// A. GENERAL INFORMATION
+// What's "Household code",
+{
+  "resourceType" : "Patient",
+  "id : "<patient-id>"
+  "name" : [{
+    "text" : "<A.full name>"
+    // possible to do family / given
+  }],
+  "gender" : "<A.gender>",
+  "dateOfBirth" : "<A.DOB>",
+  "extension" : [ {
+    "url" : "http://hl7.org/fhir/StructureDefinition/birthPlace",
+    "valueAddress" : {
+      "district" : "<A.place of Birth>",
+      "country" : "<A.Nation>" // what is this?
+    }
+  }, {
+    "url" : "http://hl7.vn/fhir/StructureDefinition/occupation",
+    "valueString" : "<A.Occupation>"
+  }, {
+    "url" : "http://hl7.vn/fhir/StructureDefinition/ethnicity",
+    "valueCode" : "<A.Ethnic>"
+  }, {
+    "url" : "http://hl7.vn/fhir/StructureDefinition/household-relationship",
+    "valueString" : "<A.Relationship to head of household>"
+  }, {
+    "url" : "http://hl7.org/fhir/StructureDefinition/patient-religion",
+    "valueCodeableConcept" : {
+      "text" : "<A.religion>"
+    }
+  }],
+  "identifier" : [{
+     "system" : "http://hl7.vn/fhir/NamingSystem/national-id",
+     "value" : "<A.ID No>",
+     "period" : {
+       "start" : "<A.Issue Date>"
+     },
+     "assigner" : {
+       "display" : "<A.Place of Issue>"
+     }
+  },{
+     "value" : "<A.Health Insurance ID /Health Insurance Card No>",
+     "type" : {
+       "coding" : {
+         "http://hl7.org/fhir/v2/0203",
+         "NIIP"
+       }
+     }
+  }],
+  "address" : [{
+    "use" : "billing", // ? is that closest
+    "line" : "<A.Registered permanent residence.(No. , street)>",
+    "city" : "<A.Registered permanent residence.Ward>",
+    "district" : "<A.Registered permanent residence.District/Commune>",
+    "state" : "<A.Registered permanent residence.Province/City>"
+  },{
+    "use" : "home", 
+    "line" : "<A.Present residence.(No. , street)>",
+    "city" : "<A.Present residence.Ward>",
+    "district" : "<A.Present residence.District/Commune>",
+    "state" : "<A.Present residence.Province/City>"
+  }],
+  "telecom" : [{
+    "system" : "phone",
+    "use" : "home",
+    "value" : "<A.Telephone>"
+  },{
+    "system" : "phone",
+    "use" : "mobile",
+    "value" : "<A.Mobile Phone>"
+  },{
+    "system" : "email",
+    "value" : "<A.Email>"
+  }],
+  "contact" : [{
+    "relationship" : [{
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/v3/RoleCode",
+        "code" : "FTH"
+      }]
+    }], 
+    "name" : [{
+      "text" : "<A.Father (Full name)>"
+    }]
+  },{
+    "relationship" : [{
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/v3/RoleCode",
+        "code" : "MTH"
+      }]
+    }], 
+    "name" : [{
+      "text" : "<A.Mother (Full name)>"
+    }]
+  },{
+    "relationship" : [{
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/v3/RoleClass",
+        "code" : "CAREGIVER"
+      }]
+    },{
+      "text" : "<A.Relationship>"
+    }], 
+    "name" : [{
+      "text" : "<A.Primary caregiver (Full name)>"
+    }],
+    "telecom" : [{
+      "system" : "phone",
+      "use" : "home",
+      "value" : "<A.Primary caregiver.Telephone>"
+    },{
+      "system" : "phone",
+      "use" : "mobile",
+      "value" : "<A.Primary caregiver.Mobile Phone>"
+    }]
+  }]
+}
+
+{
+  "resourceType" : "Observation",
+  "status" : "final",
+  "subject" : {
+    "reference" : "Patient/<patient-id>"
+  },
+  "code" : [
+    "coding" : [{
+      "system" : "http://loinc.org",
+      "code" : "34532-2"
+    }],
+    "text" : "Blood Group Panel"
+  ],
+  "component" : [{
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "883-9"
+      }],
+    "text" : "Blood Group"
+    },
+    "valueString" : "<A.ABO>"
+  },{
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "10331-7"
+      }],
+    "text" : "Rh Status"
+    },
+    "valueString" : "<A.Rh>"  
+  }]
+}    
+  
+  
+// B. MEDICAL HISTORY
+
+// 1. Previous pregnancies
+{
+  "resourceType" : "Observation",
+  "status" : "final",
+  "subject" : {
+    "reference" : "Patient/<patient-id>"
+  },
+  "code" : {
+    "coding" : [{
+      "system" : "http://hl7.vn/fhir/CodeSystem/ehr-data-points",
+      "code" : "past-pregnancy-vaginal" // past-pregnancy-csection, past-pregnancy-premature, past-pregnancy-breathing
+    }]
+  }, 
+  "valueBoolean" : <B.Vaginal>" // etc
+}
+
+Observation table
+
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   past-pregnancy-vaginal    Boolean   B.1.Vaginal
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   past-pregnancy-csection   Boolean   B.1.C-section
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   past-pregnancy-premature  Boolean   B.1.Premature birth
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   past-pregnancy-breathing  Boolean   B.1.infant breathing problem
+http://loinc.org                                8339-4                    Quantity  B.1.Birth weight
+http://loinc.org                                8305-5                    Quantity  B.1.Birth height
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   past-pregnancy-defects    String    B.1.Birth defects
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   past-pregnancy-problems   String    B.1.Other Problems
+
+// 2. Risk Factors
+
+Observation table
+
+http://loinc.org                                63638-1      Coding            B.2.Tabacco Use              VN Exposure Risk codes (No, Yes, Often, Stopped)
+http://loinc.org                                11331-6      Coding/Quantity   B.2.Alcoholic Beverages      VN Exposure Risk codes (No, Yes, Often, Stopped) or x {cup}/day
+http://loinc.org                                11343-1      Coding            B.2.Drug Use                 VN Exposure Risk codes (No, Yes, Often, Stopped)
+http://loinc.org                                77242-6      Coding            B.2.Physical activity        VN Exposure Risk codes (No, Yes, Often)
+http://loinc.org                                87729-0      String            B.2.Occupational exposure factors  Duration is in Observation.effectiveTiming.repeat.duration with Observation.effectiveTiming.repeat.count = 1
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   toilet-type  String?           B.2.Toilet type in family
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   other-risk   String            B.2.Other risk factors
+
+// 3. Illness / allergies history
+
+// Allergies
+
+{
+  "resourceType" : "AllergyIntolerance",
+  "patient" : {
+    "reference" : "Patient/<patient-id>"
+  },
+  "category" : "<3.Allergies.Type>", // Medicine = medication , Chemical/Cosmetic = environment, Food = food, Other = no category
+  "code" : {
+    "text" : "<3.Allergies.Description>"
+  }
+}
+
+// Diseases: template
+
+{
+  "resourceType" : "Condition",
+  "subject" : {
+    "reference" : "Patient/<patient-id>"
+  },
+  "verificationStatus" : "<confirmed or refuted, see below>"
+  "code" : {
+    "coding" [{
+      "http://hl7.org/fhir/sid/icd-10-vn",
+      "<code - see below>"
+    }],
+    "text" : "<write in details>"
+  }
+} 
+
+Heart problems  I51.9  (Heart disease, unspecified)
+High blood pressure   I10 (Essential (primary) hypertension)
+Diabetes E10 (Type 1 diabetes mellitus)
+Gastropathy  K31.84 (Gastroparesis)
+Chronic lung disease    J98.4 (Other disorders of lung)
+Asthma   J45 (Asthma)
+Goiter   E04 (Other nontoxic goiter)
+Hepatitis   B19 (Unspecified viral hepatitis)
+Congenital heart disease Q24.9 (Congenital malformation of heart, unspecified)
+Mental disease  F99 (Mental disorder, not otherwise specified)
+Autism F84.0 (Autistic disorder)
+Epileptic  G40.9 (Epilepsy, unspecified)
+Cancer D49.9 (Neoplasm of unspecified behavior of unspecified site)
+Tuberculosis A15.9 (Respiratory tuberculosis unspecified)
+Other - no code, just text
+
+note: ICD-10 is not a good choice for this use...
+
+// 4. Disabilities, Observations, using the template above
+
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   disability-hearing    String   B.4.Description
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   disability-eyesight   String   B.4.Description
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   disability-arms       String   B.4.Description
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   disability-legs       String   B.4.Description
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   disability-scoliosis  String   B.4.Description
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   disability-cleft      String   B.4.Description
+http://hl7.vn/fhir/CodeSystem/ehr-data-points   disability-other      String   B.4.Description
+
+// 5. Surgical history (specify the body part and year of surgery):
+
+{
+  "resourceType" : "Procedure",
+  "status" : "completed",
+  "subject" : {
+    "reference" : "Patient/<patient-id>"
+  },
+  "code" {
+    "text" : "<body part>"
+  },
+  "performedDateTime" : "<year of surgery>"
+}
+
+// 6. Family history
+
+{
+  "resourceType" : "FamilyMemberHistory",
+  "status" : "completed",
+  "patient" : {
+    "reference" : "Patient/<patient-id>"
+  },
+  "relationship" : {
+    "text" : "<B.6.Infected person>"
+  },
+  "condition" : [
+    // multiple of these for any entry from the table
+    // a. allergies
+    {
+      "code" : {
+        "coding" : [{
+          "system" : "http://hl7.org/fhir/allergy-intolerance-category",
+          "code" : "food | medication | environment" // as above, or no code
+        },
+        "text" : "<B.6.description>"
+      }
+    },
+    // Diseases
+    {
+      "code" : {
+        "coding" : [{
+          "system" : "http://hl7.org/fhir/sid/icd-10-vn",
+          "code" : "<code>" // as above for diseases, or no code for other
+        },
+        "text" : "<write in details>"
+      }
+    },
+  ]
+}
