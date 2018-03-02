@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <meta>
-    <lastUpdated value="2018-03-02T18:47:49.792+11:00" />
+    <lastUpdated value="2018-03-02T19:47:04.682+11:00" />
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa" />
@@ -15,6 +15,11 @@
   <purpose value="Defines the base Patient Profile for the National EHR for Vietnam" />
   <copyright value="(c) HL7 Vietnam (once it exists)" />
   <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="vietnam-ehr-form" />
+    <uri value="http://something............" />
+    <name value="Vietnam EHR form mapping" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Patient" />
@@ -30,6 +35,10 @@
       <path value="Patient.name" />
       <min value="1" />
       <max value="1" />
+      <mapping>
+        <identity value="vietnam-ehr-form" />
+        <map value="A.Full Name" />
+      </mapping>
     </element>
     <element id="Patient.name.use">
       <path value="Patient.name.use" />
@@ -62,7 +71,12 @@
     <element id="Patient.gender">
       <path value="Patient.gender" />
       <short value="male | female" />
-      <definition value="Male / Female only" />
+      <definition value="Nam | Nu" />
+      <min value="1" />
+    </element>
+    <element id="Patient.birthDate">
+      <path value="Patient.birthDate" />
+      <definition value="DOB is required by MoH policy" />
       <min value="1" />
     </element>
   </differential>
