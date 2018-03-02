@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <meta>
-    <lastUpdated value="2018-03-02T09:14:18.236+11:00" />
+    <lastUpdated value="2018-03-02T18:47:49.792+11:00" />
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa" />
@@ -11,6 +11,7 @@
   <title value="Vietnam National EHR Patient Profile" />
   <status value="draft" />
   <date value="2018-03-02T09:10:39.1064161+11:00" />
+  <description value="Defines the base Patient Profile for the National EHR for Vietnam" />
   <purpose value="Defines the base Patient Profile for the National EHR for Vietnam" />
   <copyright value="(c) HL7 Vietnam (once it exists)" />
   <fhirVersion value="3.0.1" />
@@ -57,6 +58,12 @@
     <element id="Patient.name.period">
       <path value="Patient.name.period" />
       <max value="0" />
+    </element>
+    <element id="Patient.gender">
+      <path value="Patient.gender" />
+      <short value="male | female" />
+      <definition value="Male / Female only" />
+      <min value="1" />
     </element>
   </differential>
 </StructureDefinition>
