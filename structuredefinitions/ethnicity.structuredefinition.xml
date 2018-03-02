@@ -4,7 +4,8 @@
     <lastUpdated value="2017-11-29T19:06:48.834+11:00" />
   </meta>
   <url value="http://hl7.org/fhir/ig/vietnam/StructureDefinition/ethnicity" />
-  <name value="Vietnam Ethnicity Extension" />
+  <name value="VietnamEthnicityExtension" />
+  <title value="Vietnam Ethnicity Extension" />
   <status value="draft" />
   <date value="2017-11-29T19:03:17.8239795+11:00" />
   <publisher value="HL7 Vietnam" />

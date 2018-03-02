@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2018-03-02T09:14:18.236+11:00" />
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa" />
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vietnam/StructureDefinition/ehr-patient" />
+  <name value="VietnamEHRProfilePatient" />
+  <title value="Vietnam National EHR Patient Profile" />
+  <status value="draft" />
+  <date value="2018-03-02T09:10:39.1064161+11:00" />
+  <purpose value="Defines the base Patient Profile for the National EHR for Vietnam" />
+  <copyright value="(c) HL7 Vietnam (once it exists)" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Patient" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Patient">
+      <path value="Patient" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Patient.name">
+      <path value="Patient.name" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Patient.name.use">
+      <path value="Patient.name.use" />
+      <max value="0" />
+    </element>
+    <element id="Patient.name.text">
+      <path value="Patient.name.text" />
+      <min value="1" />
+    </element>
+    <element id="Patient.name.family">
+      <path value="Patient.name.family" />
+      <max value="0" />
+    </element>
+    <element id="Patient.name.given">
+      <path value="Patient.name.given" />
+      <max value="0" />
+    </element>
+    <element id="Patient.name.prefix">
+      <path value="Patient.name.prefix" />
+      <max value="0" />
+    </element>
+    <element id="Patient.name.suffix">
+      <path value="Patient.name.suffix" />
+      <max value="0" />
+    </element>
+    <element id="Patient.name.period">
+      <path value="Patient.name.period" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

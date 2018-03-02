@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Patient xmlns="http://hl7.org/fhir">
+  <id value="test-1"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/birthPlace">
+    <valueAddress>
+      <district value="Ha noi"/>
+      <country value="Vietnam"/>
+    </valueAddress>
+  </extension>
+  <extension url="http://hl7.vn/fhir/StructureDefinition/occupation">
+    <valueString value="Motorcycle Courier"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/ig/vietnam/StructureDefinition/ethnicity">
+    <valueCoding>
+      <system value="??"/>
+      <code value="Viet?"/>
+    </valueCoding>
+  </extension>
+  <extension url="http://hl7.vn/fhir/StructureDefinition/household-relationship">
+    <valueString value="Head of house"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/patient-religion">
+    <valueCodeableConcept>
+      <text value="&#x110;&#x1EA1;o M&#x1EAB;u"/>
+    </valueCodeableConcept>
+  </extension>
+  <identifier>
+    <system value="http://hl7.vn/fhir/NamingSystem/national-id"/>
+    <value value="1234567"/>
+    <period>
+      <start value="1998-05-05"/>
+    </period>
+    <assigner>
+      <display value="Ha noi"/>
+    </assigner>
+  </identifier>
+  <identifier>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0203"/>
+        <code value="NIIP"/>
+      </coding>
+    </type>
+    <value value="98765432"/>
+  </identifier>
+  <name>
+    <text value="Viet Viet"/>
+  </name>
+  <telecom>
+    <system value="phone"/>
+    <value value="024 55551632"/>
+    <use value="home"/>
+  </telecom>
+  <telecom>
+    <system value="phone"/>
+    <value value="024 55551635"/>
+    <use value="mobile"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="nobody@hl7.vn"/>
+  </telecom>
+  <gender value="male"/>
+  <address>
+    <use value="home"/>
+    <line value="32 Lo Su St"/>
+    <city value="Old Quarter, Hanoi"/>
+    <district value="Hoan Kiem Dist"/>
+    <state value="??"/>
+  </address>
+  <address>
+    <use value="temp"/>
+    <line value="32 Lo Su St"/>
+    <city value="Old Quarter, Hanoi"/>
+    <district value="Hoan Kiem Dist"/>
+    <state value="??"/>
+  </address>
+  <contact>
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+        <code value="FTH"/>
+      </coding>
+    </relationship>
+  </contact>
+  <contact>
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+        <code value="MTH"/>
+      </coding>
+    </relationship>
+  </contact>
+  <contact>
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/RoleClass"/>
+        <code value="CAREGIVER"/>
+      </coding>
+    </relationship>
+    <relationship>
+      <text value="Wife"/>
+    </relationship>
+    <telecom>
+      <system value="phone"/>
+      <value value="024 55551632"/>
+      <use value="home"/>
+    </telecom>
+    <telecom>
+      <system value="phone"/>
+      <value value="02 555 2123"/>
+      <use value="mobile"/>
+    </telecom>
+  </contact>
+</Patient>
